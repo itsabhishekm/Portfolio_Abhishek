@@ -22,7 +22,7 @@ const portfolioData: PortfolioData = {
       { label: "GitHub", url: "https://github.com/ArunSanyal" },
       {
         label: "Resume",
-        url: "https://cdn.youware.com/files/arun-sanyal-resume.pdf",
+        url: "https://portfolio-arun-23pmu17vg-arunsanyals-projects.vercel.app/ArunSanyal_Resume.pdf",
       },
     ],
   },
