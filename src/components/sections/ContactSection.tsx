@@ -80,7 +80,7 @@ export function ContactSection() {
             value={values.name}
             onChange={handleChange}
             error={errors.name}
-            placeholder="Jane Doe"
+            placeholder="Your name"
           />
 
           <Field
