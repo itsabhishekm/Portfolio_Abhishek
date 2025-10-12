@@ -11,7 +11,7 @@ export function AboutSection() {
       <SectionHeader
         eyebrow="Profile"
         title="Designing intelligent, human-centered experiences"
-        description="I create AI-driven, visually rich products that make complex workflows intuitive. My work spans reasoning systems, automation, and immersive interfaces—uniting rigorous engineering with a focus on clarity, reliability, and impact."
+        description="I create AI tools that simplify complex work and put people at the center, making technology more understandable, and empowering. My current line of work spans Generative AI, Agentic AI, Interpretability, Reasoning, and the Monosemanticity of Large Language Models, as well as automation and immersive interfaces that unite AI systems with a focus on clarity, reliability, and faithfulness."
       />
       <div className="mt-12 grid gap-8 lg:grid-cols-[1.1fr_0.9fr]">
         <GradientBorderCard className="p-8">
@@ -23,7 +23,7 @@ export function AboutSection() {
             </div>
             <div className="rounded-2xl bg-white/5 p-4">
               <p className="font-medium text-slate-100">Computer Vision & Intelligence</p>
-              <p className="mt-2 text-slate-400">Building systems that interpret the world visually ranging from food safety detection to high-fidelity 3D modelling.</p>
+              <p className="mt-2 text-slate-400">Building systems that interpret the world visually spanning from vein mapping for safety detection to realistic 3D scene reconstruction.</p>
             </div>
             <div className="rounded-2xl bg-white/5 p-4">
               <p className="font-medium text-slate-100">Data-Informed Impact</p>
@@ -31,7 +31,7 @@ export function AboutSection() {
             </div>
             <div className="rounded-2xl bg-white/5 p-4">
               <p className="font-medium text-slate-100">Cloud & DevOps Scaling</p>
-              <p className="mt-2 text-slate-400">Deploying AI and software solutions with AWS, Docker, and HPC pipelines to achieve enterprise-grade performance.</p>
+              <p className="mt-2 text-slate-400">Deploying AI and software solutions with AWS, Azure, Docker, and HPC pipelines to achieve enterprise-grade performance.</p>
             </div>
           </div>
         </GradientBorderCard>

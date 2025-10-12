@@ -10,9 +10,9 @@ export function BlogSection() {
   return (
     <section id="blog" className="py-24">
       <SectionHeader
-        eyebrow="Insights"
-        title="Projects that turn ideas into real-world impact"
-        description="Blending research, engineering, and creativity, I build solutions that go beyond experiments delivering scalable systems, immersive experiences, and measurable outcomes."
+        eyebrow="Ongoing Publications"
+        title="Researches that turn ideas into real-world impact"
+        description="Blending research, engineering, and creativity, I have developed solutions that go beyond experiments delivering scalable systems, immersive experiences, and measurable outcomes."
       />
       <div className="mt-12 grid gap-6 md:grid-cols-3">
         {data.blog.map((post, index) => (

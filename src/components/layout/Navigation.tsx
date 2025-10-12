@@ -6,8 +6,8 @@ import { usePortfolioStore } from "../../store/usePortfolioStore";
 const NAV_ITEMS = [
   { label: "About", href: "#about" },
   { label: "Experience", href: "#experience" },
+  { label: "Publications", href: "#blog" },
   { label: "Projects", href: "#projects" },
-  { label: "Blog", href: "#blog" },
   { label: "Contact", href: "#contact" },
 ];
 

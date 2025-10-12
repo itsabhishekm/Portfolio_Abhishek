@@ -23,7 +23,7 @@ export function ProjectsSection() {
       <SectionHeader
         eyebrow="Projects"
         title="Projects that turn ideas into real-world impact"
-        description="From immersive 3D learning environments to AI-powered food safety systems and schema-driven LLM pipelines, my projects combine research, engineering, and creativity to deliver solutions that are practical, impactful, and future-ready."
+        description="From multi agent systems to AI-powered recommendation engines and schema-driven LLM pipelines, my projects combine research, engineering, and creativity to deliver solutions that are practical, impactful, and future-ready."
       />
 
       <div className="mt-12 grid gap-8 lg:grid-cols-[0.75fr_1.25fr]">

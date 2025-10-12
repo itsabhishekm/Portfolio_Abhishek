@@ -24,7 +24,8 @@ function App() {
       <HeroSection />
       <AboutSection />
       <ExperienceSection />
-      <ProjectsSection />
+      <BlogSection />
+      
       <Suspense
         fallback={
           <div className="py-24 text-center text-slate-400" aria-live="polite">
@@ -32,8 +33,8 @@ function App() {
           </div>
         }
       >
+        <ProjectsSection />
         <EducationSection />
-        <BlogSection />
       </Suspense>
       <ContactSection />
     </RootLayout>

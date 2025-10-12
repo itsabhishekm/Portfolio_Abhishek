@@ -9,7 +9,7 @@ export function EducationSection() {
     <section id="education" className="py-24">
       <SectionHeader
         eyebrow="Education"
-        title="Grounded in computer science, driven by innovation"
+        title="Grounded in Artificial General Intelligence, driven by innovation"
         description="My academic path builds a rigorous foundation in algorithms, systems, and networks while expanding into AI, blockchain, and immersive computing—equipping me with both depth in fundamentals and breadth across innovation-driven fields."
       />
 
