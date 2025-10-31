@@ -18,7 +18,7 @@ export function HeroSection() {
         {/* Left: Profile picture */}
         <div className="flex-shrink-0">
           <img
-            src="public/Abhi pic.JPG"
+            src="/Abhi pic.JPG"
             alt="Abhishek Mohandas — profile photo"
             className="w-72 h-72 rounded-full object-cover border-4 border-white shadow-lg"
           />
