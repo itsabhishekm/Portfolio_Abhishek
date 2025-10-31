@@ -15,7 +15,7 @@ const experiences: Exp[] = [
   {
     date: "July 2023 — December 2024",
     mode: "Onsite",
-    role: "GenAI Advanced Data Analyst/Engineer",
+    role: "Advanced Data Analyst/Engineer",
     company: "Ernst & Young",
     tags: ["LangChain", "LangGraph", "HuggingFace", "PySpark", "Snowflake", "Databricks", "Azure", "FastAPI"],
     bullets: [
