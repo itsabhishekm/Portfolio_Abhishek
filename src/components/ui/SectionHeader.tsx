@@ -1,59 +1,14 @@
-import { motion } from "framer-motion";
-import { PropsWithChildren } from "react";
-import clsx from "clsx";
+// src/components/ui/SectionHeader.tsx
+import React from "react";
 
-interface SectionHeaderProps {
-  eyebrow?: string;
-  title: string;
-  description?: string;
-  alignment?: "left" | "center";
-}
-
-export function SectionHeader({
-  eyebrow,
-  title,
-  description,
-  alignment = "left",
-}: PropsWithChildren<SectionHeaderProps>) {
+export function SectionHeader({ eyebrow, title, children }: { eyebrow?: string; title: React.ReactNode; children?: React.ReactNode }) {
   return (
-    <div
-      className={clsx("max-w-3xl", {
-        "text-center mx-auto": alignment === "center",
-      })}
-    >
-      {eyebrow ? (
-        <motion.span
-          initial={{ opacity: 0, y: 12 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, amount: 0.6 }}
-          transition={{ duration: 0.6, ease: "easeOut" }}
-          className="uppercase tracking-[0.3em] text-xs md:text-sm text-slate-400"
-        >
-          {eyebrow}
-        </motion.span>
-      ) : null}
-
-      <motion.h2
-        initial={{ opacity: 0, y: 20 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true, amount: 0.6 }}
-        transition={{ duration: 0.7, delay: 0.1, ease: "easeOut" }}
-        className="mt-3 text-3xl md:text-4xl lg:text-5xl font-semibold text-slate-100"
-      >
-        {title}
-      </motion.h2>
-
-      {description ? (
-        <motion.p
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, amount: 0.6 }}
-          transition={{ duration: 0.7, delay: 0.18, ease: "easeOut" }}
-          className="mt-4 text-base md:text-lg text-slate-400"
-        >
-          {description}
-        </motion.p>
-      ) : null}
-    </div>
+    <header className="mb-6">
+      {eyebrow && <div className="text-xs tracking-widest text-slate-400 uppercase">{eyebrow}</div>}
+      <h2 className="mt-2 text-3xl md:text-4xl font-extrabold text-slate-900 leading-tight">{title}</h2>
+      {children && <div className="mt-3 text-base text-slate-600 max-w-3xl">{children}</div>}
+    </header>
   );
 }
+
+export default SectionHeader;

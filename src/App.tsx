@@ -1,22 +1,12 @@
-import { Suspense, lazy } from "react";
-import { RootLayout } from "./components/layout/RootLayout";
-import { HeroSection } from "./components/sections/HeroSection";
-import { AboutSection } from "./components/sections/AboutSection";
-import { ExperienceSection } from "./components/sections/ExperienceSection";
-import { ProjectsSection } from "./components/sections/ProjectsSection";
-import { ContactSection } from "./components/sections/ContactSection";
-
-const EducationSection = lazy(() =>
-  import("./components/sections/EducationSection").then((module) => ({
-    default: module.EducationSection,
-  })),
-);
-
-const BlogSection = lazy(() =>
-  import("./components/sections/BlogSection").then((module) => ({
-    default: module.BlogSection,
-  })),
-);
+// src/App.tsx
+import React from "react";
+import RootLayout from "./components/layout/RootLayout";
+import HeroSection from "./components/sections/HeroSection";
+import AboutSection from "./components/sections/AboutSection";
+import PublicationsSection from "./components/sections/BlogSection";
+import ExperienceSection from "./components/sections/ExperienceSection";
+import ProjectsSection from "./components/sections/ProjectsSection";
+import EducationSection from "./components/sections/EducationSection";
 
 function App() {
   return (
@@ -24,19 +14,13 @@ function App() {
       <HeroSection />
       <AboutSection />
       <ExperienceSection />
-      <BlogSection />
-      
-      <Suspense
-        fallback={
-          <div className="py-24 text-center text-slate-400" aria-live="polite">
-            Loading curated stories…
-          </div>
-        }
-      >
-        <ProjectsSection />
-        <EducationSection />
-      </Suspense>
-      <ContactSection />
+      <ProjectsSection />
+      <EducationSection />
+      <PublicationsSection />
+      <section id="contact" className="py-12">
+        <h2 className="text-2xl font-semibold">Thank you for stopping by and spending your time!</h2>
+        <p className="text-xl text-slate-800">Feel free to reach out via email or on LinkedIn if you have suggestions, or would like to connect and collaborate on projects :)</p>
+      </section>
     </RootLayout>
   );
 }

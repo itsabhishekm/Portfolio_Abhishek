@@ -1,47 +1,84 @@
-import { motion } from "framer-motion";
-import { SectionHeader } from "../ui/SectionHeader";
-import { usePortfolioStore } from "../../store/usePortfolioStore";
+// src/components/sections/EducationSection.tsx
+import React from "react";
+import SectionHeader from "../ui/SectionHeader";
+
+type Education = {
+  date: string;
+  location: string;
+  degree: string;
+  institution: string;
+  description: string;
+  coursework: string;
+};
+
+const education: Education[] = [
+  {
+    date: "2025 — 2026",
+    location: "Tucson, Arizona",
+    degree: "Master of Science in Data Science",
+    institution: "University of Arizona",
+    description:
+      "Currently working at the intersection of Generative AI and Agentic AI, and the interpretability, reasoning, and monosemanticity of large models.",
+    coursework:
+      "Graduate coursework in Applied NLP, Neural Networks, Machine Learning, Data Mining, and SQL/NoSQL Databases.",
+  },
+  {
+    date: "2019 — 2023",
+    location: "Kochi",
+    degree:
+      "Bachelor of Technology in Electronics and Communication Engineering",
+    institution: "Rajagiri School of Engineering and Technology",
+    description:
+      "Led student teams in research combining NLP and machine learning models for retention analysis, automated data pipelines, and curriculum development.",
+    coursework:
+      "Graduated with coursework in Speech & Audio Processing, Machine Learning, Computer Vision, Information Theory, and Coding.",
+  },
+];
 
 export function EducationSection() {
-  const { data } = usePortfolioStore();
-
   return (
-    <section id="education" className="py-24">
+    <section id="education" className="py-12">
       <SectionHeader
         eyebrow="Education"
         title="Grounded in Artificial General Intelligence, driven by innovation"
-        description="My academic path builds a rigorous foundation in algorithms, systems, and networks while expanding into AI, blockchain, and immersive computing—equipping me with both depth in fundamentals and breadth across innovation-driven fields."
-      />
+      >
+      </SectionHeader>
 
-      <div className="mt-12 grid gap-8 md:grid-cols-2">
-        {data.education.map((school, index) => (
-          <motion.div
-            key={school.institution}
-            className="rounded-3xl border border-white/10 bg-white/5 p-8"
-            initial={{ opacity: 0, y: 24 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, amount: 0.5 }}
-            transition={{ duration: 0.7, delay: index * 0.1 }}
+      <div className="space-y-6">
+        {education.map((edu, i) => (
+          <article
+            key={i}
+            className="bg-white border border-slate-200 rounded-2xl p-6 shadow-sm
+                        transition-colors duration-300 ease-in-out 
+                        hover:bg-emerald-50/60 hover:border-emerald-300 hover:shadow-md
+                        cursor-pointer focus:outline-none focus:ring-2 focus:ring-emerald-200"
           >
-            <p className="text-xs uppercase tracking-[0.35em] text-slate-400">
-              {school.timeline} · {school.location}
+            {/* Degree + date/location in same row */}
+            <div className="flex items-start justify-between">
+              <div className="text-lg font-semibold text-slate-900">
+                {edu.degree}
+              </div>
+              <div className="text-sm text-slate-500">
+                {edu.date} <span className="mx-2">•</span>{" "}
+                <span className="uppercase">{edu.location}</span>
+              </div>
+            </div>
+
+            {/* Institution */}
+            <div className="text-slate-600 mt-1">{edu.institution}</div>
+
+            {/* Description and coursework */}
+            <p className="mt-3 text-sm text-slate-700 leading-relaxed">
+              {edu.description}
             </p>
-            <h3 className="mt-3 text-xl font-semibold text-white">
-              {school.credential}
-            </h3>
-            <p className="mt-1 text-base text-slate-300">
-              {school.institution}
+            <p className="mt-2 text-sm text-slate-700 leading-relaxed">
+              {edu.coursework}
             </p>
-            <ul className="mt-4 space-y-3 text-sm text-slate-300">
-              {school.highlights.map((highlight) => (
-                <li key={highlight} className="leading-relaxed">
-                  {highlight}
-                </li>
-              ))}
-            </ul>
-          </motion.div>
+          </article>
         ))}
       </div>
     </section>
   );
 }
+
+export default EducationSection;

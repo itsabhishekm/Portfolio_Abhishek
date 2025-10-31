@@ -1,68 +1,172 @@
-import { motion } from "framer-motion";
-import { usePortfolioStore } from "../../store/usePortfolioStore";
-import { SectionHeader } from "../ui/SectionHeader";
-import { GradientBorderCard } from "../ui/GradientBorderCard";
+// src/components/sections/AboutSection.tsx
+import React from "react";
+import SectionHeader from "../ui/SectionHeader";
+
+const SKILL_GROUPS: { title: string; tags: string[] }[] = [
+  {
+    title: "Languages",
+    tags: ["Python", "SQL", "Java", "R", "Scala"],
+  },
+  {
+    title: "Data Engineering & Orchestration",
+    tags: [
+      "PySpark",
+      "Databricks",
+      "Data Lake",
+      "Snowflake",
+      "PostgreSQL",
+      "MongoDB",
+      "Airflow",
+      "N8N"
+    ],
+  },
+  {
+    title: "Machine Learning & Generative AI",
+    tags: [
+      "Hugging Face",
+      "LangChain",
+      "LangGraph",
+      "RAG Pipelines",
+      "FAISS",
+      "PyTorch",
+      "Keras",
+      "scikit-learn",
+      "Pandas",
+      "NumPy"
+    ],
+  },
+  
+  {
+    title: "DevOps & Cloud Infrastructure",
+    tags: [
+      "Docker",
+      "AWS (S3, ECR, EC2, Lambda, Fargate)",
+      "Azure (ADF, ADLS Gen2, Synapse)",
+      "HPC",
+      "Grafana Cloud",
+      "Jenkins",
+      "FastAPI",
+      "Vercel",
+      "GitHub",
+    ],
+  },
+];
 
 export function AboutSection() {
-  const { data } = usePortfolioStore();
-
   return (
-    <section id="about" className="py-24">
-      <SectionHeader
-        eyebrow="Profile"
-        title="Designing intelligent, human-centered experiences"
-        description="I create AI tools that simplify complex work and put people at the center, making technology more understandable, and empowering. My current line of work spans Generative AI, Agentic AI, Interpretability, Reasoning, and the Monosemanticity of Large Language Models, as well as automation and immersive interfaces that unite AI systems with a focus on clarity, reliability, and faithfulness."
-      />
-      <div className="mt-12 grid gap-8 lg:grid-cols-[1.1fr_0.9fr]">
-        <GradientBorderCard className="p-8">
-          <h3 className="text-lg font-semibold text-white">Signature themes</h3>
-          <div className="mt-6 grid gap-4 text-sm text-slate-300 md:grid-cols-2">
-            <div className="rounded-2xl bg-white/5 p-4">
-              <p className="font-medium text-slate-100">GenAI Orchestration</p>
-              <p className="mt-2 text-slate-400">Designing multi-agent workflows, RAG pipelines, and intelligent systems with quality and scale in mind.</p>
+    <section id="about" className="py-12">
+      <SectionHeader eyebrow="ABOUT" title="Designing intelligent, human-centered systems">
+        I am a graduate student whose work spans from Data Engineering to AI/ML (full-stack), with ongoing research focused on large models.
+        <br />
+        Having spent over 2+ years in the industry,below is a summary of key areas and tech stack I have worked with :)
+      </SectionHeader>
+
+      <div className="grid grid-cols-1 md:grid-cols-12 gap-6 items-start">
+        {/* Left: Signature theme cards */}
+        <div className="md:col-span-8">
+          <div className="space-y-4">
+            {/* Card 1 */}
+            <div
+              className="group bg-white rounded-2xl p-6 border border-slate-200 shadow-sm
+              transition-colors duration-300 ease-in-out hover:bg-emerald-50/60 hover:border-emerald-300 hover:shadow-md
+              cursor-pointer focus:outline-none focus:ring-2 focus:ring-emerald-200"
+              tabIndex={0}
+            >
+              <div className="font-semibold text-lg text-slate-800">
+                Multimodal & Agentic AI Orchestration
+              </div>
+              <p className="mt-2 text-sm text-slate-600">
+                Developed multi-agent workflows and RAG pipelines from adaptive to graph-based architectures,
+                building intelligent systems with quality and scalability in mind. Employed models such as
+                LLaMA, Mistral, GPT (Azure OpenAI), Gemma-2, RoBERTa, and Flan-T5.
+              </p>
             </div>
-            <div className="rounded-2xl bg-white/5 p-4">
-              <p className="font-medium text-slate-100">Computer Vision & Intelligence</p>
-              <p className="mt-2 text-slate-400">Building systems that interpret the world visually spanning from vein mapping for safety detection to realistic 3D scene reconstruction.</p>
+
+            {/* Card 2 */}
+            <div
+              className="group bg-white rounded-2xl p-6 border border-slate-200 shadow-sm
+              transition-colors duration-300 ease-in-out hover:bg-emerald-50/60 hover:border-emerald-300 hover:shadow-md
+              cursor-pointer focus:outline-none focus:ring-2 focus:ring-emerald-200"
+              tabIndex={0}
+            >
+              <div className="font-semibold text-lg text-slate-800">
+                Computer Vision & Intelligence
+              </div>
+              <p className="mt-2 text-sm text-slate-600">
+                Designed a custom neural network to identify human veins using Near-Infrared (NIR) imagery
+                and reconstruct them into realistic 3D visualizations. Implemented the system on a dynamically
+                reconfigurable AI accelerator for high-throughput inference.
+              </p>
             </div>
-            <div className="rounded-2xl bg-white/5 p-4">
-              <p className="font-medium text-slate-100">Data-Informed Impact</p>
-              <p className="mt-2 text-slate-400">Transforming messy datasets into clear, actionable intelligence for real-world decision-making.</p>
+
+            {/* Card 3 */}
+            <div
+              className="group bg-white rounded-2xl p-6 border border-slate-200 shadow-sm
+              transition-colors duration-300 ease-in-out hover:bg-emerald-50/60 hover:border-emerald-300 hover:shadow-md
+              cursor-pointer focus:outline-none focus:ring-2 focus:ring-emerald-200"
+              tabIndex={0}
+            >
+              <div className="font-semibold text-lg text-slate-800">
+                Data Engineering & Orchestration
+              </div>
+              <p className="mt-2 text-sm text-slate-600">
+                Built ETL pipelines on AWS and Azure using Snowflake and Databricks for scalable data ingestion,
+                cleaning, and feature engineering. Performed EDA and instrumentation to surface actionable
+                metrics for stakeholders.
+              </p>
             </div>
-            <div className="rounded-2xl bg-white/5 p-4">
-              <p className="font-medium text-slate-100">Cloud & DevOps Scaling</p>
-              <p className="mt-2 text-slate-400">Deploying AI and software solutions with AWS, Azure, Docker, and HPC pipelines to achieve enterprise-grade performance.</p>
+
+            {/* Card 4 */}
+            <div
+              className="group bg-white rounded-2xl p-6 border border-slate-200 shadow-sm
+              transition-colors duration-300 ease-in-out hover:bg-emerald-50/60 hover:border-emerald-300 hover:shadow-md
+              cursor-pointer focus:outline-none focus:ring-2 focus:ring-emerald-200"
+              tabIndex={0}
+            >
+              <div className="font-semibold text-lg text-slate-800">
+                Cloud & DevOps Scaling
+              </div>
+              <p className="mt-2 text-sm text-slate-600">
+                Deployed solutions with Azure, AWS, Docker, Kubernetes, Grafana Cloud, Jenkins CI/CD, and HPC
+                pipelines to deliver enterprise-grade performance and reproducibility.
+              </p>
             </div>
           </div>
-        </GradientBorderCard>
-
-        <div className="grid gap-6">
-          {data.skills.map((category, index) => (
-            <motion.div
-              key={category.title}
-              initial={{ opacity: 0, x: 30 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true, amount: 0.4 }}
-              transition={{ duration: 0.6, delay: index * 0.1 }}
-              className="rounded-3xl border border-white/10 bg-white/5 p-6"
-            >
-              <p className="text-sm uppercase tracking-[0.3em] text-slate-400">
-                {category.title}
-              </p>
-              <ul className="mt-3 flex flex-wrap gap-2 text-sm text-slate-200">
-                {category.items.map((item) => (
-                  <li
-                    key={item}
-                    className="rounded-full border border-white/10 bg-slate-900/60 px-3 py-1"
-                  >
-                    {item}
-                  </li>
-                ))}
-              </ul>
-            </motion.div>
-          ))}
         </div>
+
+        {/* Right: Skills section */}
+        <aside className="md:col-span-4">
+          <div className="bg-white rounded-2xl p-6 shadow-md border border-slate-100">
+            {/* SKILLS heading styled like ABOUT */}
+            <div className="text-xs font-semibold tracking-widest text-slate-500 uppercase mb-2">
+              TECH STACK I HAVE WORKED WITH
+            </div>
+
+            <div className="space-y-6">
+              {SKILL_GROUPS.map((group) => (
+                <div key={group.title}>
+                  <div className="text-x font-semibold text-slate-900">
+                    {group.title}
+                  </div>
+
+                  <div className="mt-3 flex flex-wrap gap-2">
+                    {group.tags.map((t) => (
+                      <span
+                        key={t}
+                        className="text-xs px-3 py-1 rounded-full border border-slate-200 bg-white text-slate-700"
+                      >
+                        {t}
+                      </span>
+                    ))}
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </aside>
       </div>
     </section>
   );
 }
+
+export default AboutSection;

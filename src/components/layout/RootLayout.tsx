@@ -1,23 +1,35 @@
-import { PropsWithChildren } from "react";
-import { motion } from "framer-motion";
+// src/components/layout/RootLayout.tsx
+import React, { PropsWithChildren } from "react";
 import { Navigation } from "./Navigation";
 
 export function RootLayout({ children }: PropsWithChildren) {
   return (
-    <div className="min-h-screen w-full bg-slate-950 text-slate-100">
+    <div className="min-h-screen w-full bg-page text-slate-900 antialiased">
       <div className="relative">
-        <div className="absolute inset-x-0 top-0 h-[520px] bg-[radial-gradient(circle_at_top,_rgba(16,185,129,0.25),_transparent_55%)] blur-3xl" />
-        <div className="absolute inset-x-0 top-32 h-[400px] bg-[radial-gradient(circle_at_top,_rgba(59,130,246,0.18),_transparent_60%)] blur-3xl" />
+        {/* light radial accents */}
+        <div
+          className="absolute inset-x-0 top-0 h-[420px] blur-3xl pointer-events-none"
+          style={{
+            background:
+              "radial-gradient(circle at top, rgba(16,185,129,0.06), transparent 50%)",
+          }}
+        />
+        <div
+          className="absolute inset-x-0 top-28 h-[320px] blur-3xl pointer-events-none"
+          style={{
+            background:
+              "radial-gradient(circle at top, rgba(59,130,246,0.04), transparent 55%)",
+          }}
+        />
 
         <Navigation />
 
-        <motion.main
-          className="relative mx-auto max-w-6xl px-6 pb-24"
-          initial={false}
-        >
+        <main className="relative mx-auto max-w-6xl px-6 pb-24 pt-8">
           {children}
-        </motion.main>
+        </main>
       </div>
     </div>
   );
 }
+
+export default RootLayout;

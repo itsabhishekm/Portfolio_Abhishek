@@ -1,79 +1,69 @@
-import { useState } from "react";
-import { motion, AnimatePresence } from "framer-motion";
+// src/components/layout/Navigation.tsx
+import React from "react";
 import { Menu, X } from "lucide-react";
-import { usePortfolioStore } from "../../store/usePortfolioStore";
 
-const NAV_ITEMS = [
-  { label: "About", href: "#about" },
-  { label: "Experience", href: "#experience" },
-  { label: "Publications", href: "#blog" },
-  { label: "Projects", href: "#projects" },
-  { label: "Contact", href: "#contact" },
+const LINKS = [
+  { href: "#about", label: "About" },
+  { href: "#experience", label: "Experience" },
+  { href: "#projects", label: "Projects" },
+  { href: "#education", label: "Education" },
 ];
 
 export function Navigation() {
-  const [open, setOpen] = useState(false);
-  const { data } = usePortfolioStore();
-
+  const [open, setOpen] = React.useState(false);
   return (
-    <header className="sticky top-0 z-40 bg-slate-950/70 backdrop-blur-xl border-b border-white/5">
-      <nav className="mx-auto flex max-w-6xl items-center justify-between px-6 py-4">
-        <a
-          href="#hero"
-          className="text-lg font-semibold tracking-tight text-white"
-          aria-label="Scroll to hero section"
-        >
-          {data.profile.name}
-        </a>
-
-        <div className="hidden items-center gap-8 md:flex">
-          {NAV_ITEMS.map((item) => (
-            <a
-              key={item.href}
-              href={item.href}
-              className="text-sm font-medium text-slate-300 transition-all hover:text-white hover:-translate-y-0.5"
-            >
-              {item.label}
+    <header className="sticky top-0 z-40">
+      <div className="bg-[linear-gradient(90deg,#071028_0%,#0b1628_100%)] shadow-sm">
+        <div className="max-w-6xl mx-auto flex items-center justify-between px-6 h-16">
+          <div className="flex items-center gap-4">
+            <a href="#hero" className="flex items-center gap-3">
+              <span className="text-white text-xl font-semibold">Abhishek Mohandas</span>
             </a>
-          ))}
+          </div>
+
+          <nav className="hidden md:flex items-center gap-8" aria-label="Primary navigation">
+            {LINKS.map((link) => (
+              <a
+                key={link.href}
+                href={link.href}
+                className="text-white text-sm hover:text-accent transition-colors"
+              >
+                {link.label}
+              </a>
+            ))}
+          </nav>
+
+          <div className="md:hidden">
+            <button
+              aria-label="Toggle navigation"
+              aria-expanded={open}
+              onClick={() => setOpen((s) => !s)}
+              className="p-2 rounded-md text-white hover:bg-white/5"
+            >
+              {open ? <X size={18} /> : <Menu size={18} />}
+            </button>
+          </div>
         </div>
 
-        <div className="md:hidden">
-          <button
-            type="button"
-            onClick={() => setOpen((prev) => !prev)}
-            className="rounded-full border border-white/10 p-2 text-slate-200"
-            aria-label="Toggle navigation"
-          >
-            {open ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
-          </button>
-        </div>
-      </nav>
-
-      <AnimatePresence>
-        {open ? (
-          <motion.div
-            className="border-b border-white/10 bg-slate-950/95 backdrop-blur-xl md:hidden"
-            initial={{ height: 0 }}
-            animate={{ height: "auto" }}
-            exit={{ height: 0 }}
-            transition={{ duration: 0.25, ease: "easeInOut" }}
-          >
-            <div className="space-y-3 px-6 pb-6 pt-2">
-              {NAV_ITEMS.map((item) => (
+        {open && (
+          <div id="mobile-menu" className="md:hidden border-t border-white/6 bg-[transparent]">
+            <div className="px-6 py-4 flex flex-col gap-2">
+              {LINKS.map((link) => (
                 <a
-                  key={item.href}
-                  href={item.href}
-                  className="block text-sm font-medium text-slate-300"
+                  key={link.href}
+                  href={link.href}
+                  className="text-white text-base py-2"
                   onClick={() => setOpen(false)}
                 >
-                  {item.label}
+                  {link.label}
                 </a>
               ))}
             </div>
-          </motion.div>
-        ) : null}
-      </AnimatePresence>
+          </div>
+        )}
+      </div>
     </header>
   );
 }
+
+export default Navigation;

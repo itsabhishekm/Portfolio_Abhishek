@@ -1,144 +1,109 @@
-import { motion } from "framer-motion";
+// src/components/sections/HeroSection.tsx
+import React from "react";
 import { ArrowUpRight } from "lucide-react";
-import { usePortfolioStore } from "../../store/usePortfolioStore";
-import { GradientBorderCard } from "../ui/GradientBorderCard";
-import { Badge } from "../ui/Badge";
-
-const heroVariants = {
-  hidden: { opacity: 0, y: 24 },
-  visible: (index: number) => ({
-    opacity: 1,
-    y: 0,
-    transition: {
-      delay: 0.1 * index,
-      duration: 0.8,
-      ease: "easeOut",
-    },
-  }),
-};
 
 export function HeroSection() {
-  const { data } = usePortfolioStore();
-  const { profile } = data;
+  const roles = [
+    "Open to Full time and Internship roles:",
+    "GenAI Engineer",
+    "ML Engineer",
+    "Software Developer",
+    "Backend Engineer",
+    "Data Engineer",
+  ];
 
   return (
-    <section id="hero" className="relative grid items-center gap-12 py-20 md:grid-cols-[1.1fr_0.9fr]">
-      <div className="relative z-10 space-y-8">
-        <motion.div
-          className="inline-flex items-center gap-3 rounded-full bg-white/5 px-4 py-2"
-          initial="hidden"
-          animate="visible"
-          custom={1}
-          variants={heroVariants}
-        >
-          <span className="h-2 w-2 rounded-full bg-emerald-400" />
-          <span className="text-sm font-medium text-slate-300">
-            {profile.location}· Available for impactful work</span>
-        </motion.div>
+    <section id="hero" className="py-12">
+      <div className="flex flex-col md:flex-row items-center gap-8">
+        {/* Left: Profile picture */}
+        <div className="flex-shrink-0">
+          <img
+            src="public/Abhi pic.JPG"
+            alt="Abhishek Mohandas — profile photo"
+            className="w-72 h-72 rounded-full object-cover border-4 border-white shadow-lg"
+          />
+        </div>
 
-        <motion.h1
-          custom={2}
-          variants={heroVariants}
-          initial="hidden"
-          animate="visible"
-          className="text-4xl font-semibold leading-tight text-white md:text-6xl"
-        >
-          {profile.name}
-        </motion.h1>
+        {/* Right: Info */}
+        <div className="flex-1">
+          <p className="text-4xl md:text-5xl font-extrabold text-slate-900 leading-tight">
+            Abhishek Mohandas
+          </p>
 
-        <motion.p
-          custom={3}
-          variants={heroVariants}
-          initial="hidden"
-          animate="visible"
-          className="text-lg text-slate-300 md:text-xl"
-        >
-          {profile.summary}
-        </motion.p>
+          <h2 className="mt-4 text-lg text-slate-700 max-w-2xl">
+            Building end-to-end, scalable AI systems with a focus on improving reliability and advancing human-centered approaches in large models.
+          </h2>
 
-        <motion.div
-          custom={4}
-          variants={heroVariants}
-          initial="hidden"
-          animate="visible"
-          className="flex flex-wrap items-center gap-4"
-        >
-          <a
-            href="#projects"
-            className="group inline-flex items-center gap-2 rounded-full border border-emerald-400/60 bg-emerald-500/15 px-6 py-3 text-sm font-semibold text-emerald-200 transition-all hover:-translate-y-0.5 hover:border-emerald-300 hover:bg-emerald-400/20"
-          >
-            View signature work
-            <ArrowUpRight className="h-4 w-4 transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
-          </a>
+          {/* Mail ID */}
+          <p className="mt-3 text-lg text-slate-600">
+            <a
+              href="mailto:abhishek.mohandas@outlook.com"
+              className="hover:text-slate-800 transition-colors"
+            >
+              abhishek.mohandas@outlook.com
+            </a>
+            <div className="mt-3 text-lg text-slate-600">Tucson, Arizona</div>
+          </p>
 
-          <div className="flex flex-wrap items-center gap-3">
-            {profile.links.map((link) => (
+          {/* Buttons + Social Links */}
+          <div className="mt-6 flex flex-col sm:flex-row sm:items-center sm:gap-6 gap-4">
+            <div className="flex items-center gap-4 text-sm">
               <a
-                key={link.url}
-                href={link.url}
-                className="inline-flex items-center gap-2 text-sm font-medium text-slate-300 transition-colors hover:text-white"
+                href="https://drive.google.com/file/d/1blC_eg7T2-vfT6iMFXyzU_jOun6OZiuV/view?usp=drive_link"
+                className="group inline-flex items-center gap-2 rounded-full border border-emerald-400/60 bg-emerald-500/15 px-6 py-3 text-sm font-semibold text-emerald-700 transition-all hover:-translate-y-0.5 hover:border-emerald-300 hover:bg-emerald-400/20"
                 target="_blank"
                 rel="noreferrer"
               >
-                {link.label}
-                <ArrowUpRight className="h-3 w-3" />
+                Resume <ArrowUpRight size={14} strokeWidth={2} />
               </a>
+            </div>
+
+            <div className="flex items-center gap-4 text-sm">
+              <a
+                href="https://github.com/itsabhishekm"
+                aria-label="GitHub"
+                className="text-slate-700 hover:text-emerald-500 transition-colors inline-flex items-center gap-1 font-semibold"
+              >
+                GitHub <ArrowUpRight size={14} strokeWidth={2} />
+              </a>
+              <a
+                href="https://www.linkedin.com/in/abhishekmohandas/"
+                aria-label="LinkedIn"
+                className="text-slate-700 hover:text-emerald-500 transition-colors inline-flex items-center gap-1 font-semibold"
+              >
+                LinkedIn <ArrowUpRight size={14} strokeWidth={2} />
+              </a>
+              <a
+                href="https://medium.com/@mabhishek2817"
+                aria-label="Medium"
+                className="text-slate-700 hover:text-emerald-500 transition-colors inline-flex items-center gap-1 font-semibold"
+              >
+                Medium <ArrowUpRight size={14} strokeWidth={2} />
+              </a>
+            </div>
+          </div>
+
+          {/* Roles Section */}
+          <div className="mt-6 flex flex-wrap items-center gap-2">
+            {/* Text only (bold) */}
+            <div className="text-s text-slate-700 font-semibold mr-3">
+              {roles[0]}
+            </div>
+
+            {/* Tags (bold inside pills) */}
+            {roles.slice(1).map((t) => (
+              <span
+                key={t}
+                className="text-xs px-3 py-1 rounded-full border bg-white text-slate-700 font-semibold"
+              >
+                {t}
+              </span>
             ))}
           </div>
-        </motion.div>
-      </div>
-      <div className="relative">
-        <GradientBorderCard className="overflow-hidden">
-          <motion.div
-            className="relative flex flex-col gap-6 rounded-3xl bg-slate-900/60 p-8 backdrop-blur"
-            initial={{ opacity: 0, scale: 0.92 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.9, delay: 0.2, ease: "easeOut" }}
-          >
-            <div className="flex flex-wrap items-center gap-3 text-xs text-slate-400">
-              <Badge label={profile.title} variant="emerald" />
-              <Badge label="Cloud & DevOps" variant="sky" />
-              <Badge label="Product Strategy" variant="slate" />
-            </div>
-
-            <div className="space-y-3">
-              <p className="text-sm uppercase tracking-[0.3em] text-slate-400">
-                Contact
-              </p>
-              <div className="space-y-2 text-base">
-                <a href={`mailto:${profile.email}`} className="block text-slate-200">
-                  {profile.email}
-                </a>
-                <a href={`tel:${profile.phone}`} className="block text-slate-200">
-                  {profile.phone}
-                </a>
-              </div>
-            </div>
-
-            <div className="grid gap-3 text-sm text-slate-300">
-              <div>
-                <p className="text-xs uppercase tracking-[0.35em] text-slate-500">
-                  Expertise
-                </p>
-                <p>GenAI Pipelines · Agentic RAG · Immersive Learning · ML Ops</p>
-              </div>
-              <div>
-                <p className="text-xs uppercase tracking-[0.35em] text-slate-500">
-                  Availability
-                </p>
-                <p>Open to research-driven internships & collaborations</p>
-              </div>
-            </div>
-          </motion.div>
-        </GradientBorderCard>
-
-        <motion.div
-          className="absolute -left-10 top-10 hidden h-28 w-28 rounded-2xl bg-gradient-to-br from-emerald-500/30 to-sky-500/30 blur-2xl md:block"
-          initial={{ opacity: 0, scale: 0.8 }}
-          animate={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 1.2, delay: 0.5 }}
-        />
+        </div>
       </div>
     </section>
   );
 }
+
+export default HeroSection;
